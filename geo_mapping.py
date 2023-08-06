@@ -84,7 +84,7 @@ def process_geo_reference(geo_reference):
 
 def main():
     # Load data
-    data = pd.read_excel('raw_data/artworks.xlsx')
+    data = pd.read_excel('../raw_data/artworks.xlsx')
 
     # Apply the function to process geographic references to the original data
     data['Country'], data['Region/City'] = zip(*data['Geo. Reference'].apply(process_geo_reference))
@@ -117,7 +117,7 @@ def main():
 
     # Save the processed DataFrame as an Excel file
     today = datetime.date.today()
-    data.to_excel(f'raw_data/artworks_cleaned_{today.strftime("%d%m%Y")}.xlsx', index=False)
+    data.to_excel(f'../raw_data/artworks_cleaned_{today.strftime("%d%m%Y")}.xlsx', index=False)
 
 if __name__ == "__main__":
     main()
